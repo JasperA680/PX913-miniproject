@@ -10,3 +10,7 @@ simulates a charged particle using velocity Verlet, and writes all data to a Net
 
 ## Build and run
 Use `scripts/run_project.sh` to compile, run, and plot the results.
+
+## Plan 
+
+- Initialise programme using `grid_mod`
