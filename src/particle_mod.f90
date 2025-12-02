@@ -14,7 +14,7 @@
 !> -
 !> --------------
 
-MODULE particle
+MODULE particle_mod
   USE ISO_FORTRAN_ENV
   IMPLICIT NONE
   SAVE
@@ -69,10 +69,10 @@ MODULE particle
         this%vel = [0.0_REAL64, 0.0_REAL64]
     END SELECT
 
-    this%histPosX(0) = this%pos(0)
-    this%histPosY(0) = this%pos(1)
-    this%histVelX(0) = this%vel(0)
-    this%histVelY(0) = this%vel(1)
+    this%histPosX(0) = this%pos(1)
+    this%histPosY(0) = this%pos(2)
+    this%histVelX(0) = this%vel(1)
+    this%histVelY(0) = this%vel(2)
 
     this%electricX = eX
     this%electricY = eY
@@ -81,7 +81,7 @@ MODULE particle
 
 
 
-END MODULE particle
+END MODULE particle_mod
 
 
 
