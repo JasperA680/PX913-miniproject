@@ -9,7 +9,7 @@ Program test_grid
     nx = 4
     ny = 4
 
-    call setup_grid(nx, ny, "single")
+    call setup_grid(nx, ny, "double")
 
     print *, "dx =", dx, " dy =", dy
     print *, "rho(2,2) =", rho(2,2)
