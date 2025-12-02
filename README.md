@@ -13,4 +13,6 @@ Use `scripts/run_project.sh` to compile, run, and plot the results.
 
 ## Plan 
 
-- Initialise programme using `grid_mod`
+- Initialise programme using `grid_mod.f90`
+- Write `poisson_mod.f90` (Jasper)
+- Write `particle_mod.f90` (Velocity Verlet) (Anton)
