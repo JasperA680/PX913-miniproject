@@ -96,9 +96,8 @@ MODULE particle_mod
     CLASS(particle), INTENT(IN) :: this
     REAL(REAL64), INTENT(IN) :: one_o_dx, one_o_dy
 
-    REAL(REAL64), DIMENSION(2) :: one_o_dA = [one_o_dx, one_o_dy]
-
-    particleGetGridCell = FLOOR((this%pos - 1.0_REAL64)*one_o_dA) + 1
+    particleGetGridCell(1) = FLOOR((this%pos(1) - 1.0_REAL64)*one_o_dx) + 1
+    particleGetGridCell(2) = FLOOR((this%pos(2) - 1.0_REAL64)*one_o_dy) + 1
 
   END FUNCTION particleGetGridCell
 
