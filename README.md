@@ -16,3 +16,7 @@ Use `scripts/run_project.sh` to compile, run, and plot the results.
 - Initialise programme using `grid_mod.f90`
 - Write `poisson_mod.f90` (Jasper)
 - Write `particle_mod.f90` (Velocity Verlet) (Anton)
+- Write `io_netcdf_mod.f90` (Anton)
+- Write main driver program and connect modules (Jasper)
+- Write build script (TBC)
+- Write python netcdf input and visualiser (TBC)
