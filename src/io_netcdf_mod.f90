@@ -19,6 +19,7 @@ MODULE io_netcdf_mod
   USE grid_mod, ONLY: dx, dy, nx_glob, ny_glob
   USE particle_mod
   USE domain_tools
+  Use netcdf
 
   IMPLICIT NONE
 
