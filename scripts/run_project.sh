@@ -39,7 +39,7 @@ echo "Compilation complete."
 
 NX=100
 NY=100
-PROBLEM="single"
+PROBLEM="null"
 
 echo "Running mini_project.exe with nx=${NX}, ny=${NY}, problem=${PROBLEM}..."
 ./mini_project.exe nx=${NX} ny=${NY} problem=${PROBLEM}

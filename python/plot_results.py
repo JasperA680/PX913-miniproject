@@ -56,6 +56,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     else:
-        fname = "output_single.nc"
+        fname = "data/output_single.nc"
     main(fname)
 
