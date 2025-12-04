@@ -26,7 +26,7 @@ def main(filename: str) -> None:
 
     # Pseudocolour plot of Ex(x,y)
     plt.figure()
-    extent = [x.min(), x.max(), y.min(), y.max()]
+    extent = [-1.0, 1.0, -1.0, 1.0]
     plt.imshow(
         Ex.T,
         origin="lower",
@@ -44,7 +44,8 @@ def main(filename: str) -> None:
     plt.xlabel("x")
     plt.ylabel("y")
     plt.title("Particle Trajectory: y vs x")
-    plt.axis("equal")
+    plt.xlim([-1.0, 1.0])
+    plt.ylim([-1.0, 1.0])
 
     # mark start and end points
     plt.scatter(posX[0], posY[0], s =40, c='green', label='Start')
