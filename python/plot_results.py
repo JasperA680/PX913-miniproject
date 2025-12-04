@@ -40,7 +40,7 @@ def main(filename: str) -> None:
 
     # Particle trajectory: y vs x
     plt.figure()
-    plt.plot(posX, posY, marker="-o", markersize=2, linewidth=1)
+    plt.plot(posX, posY, marker="o", markersize=2, linewidth=1)
     plt.xlabel("x")
     plt.ylabel("y")
     plt.title("Particle Trajectory: y vs x")
@@ -56,6 +56,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         fname = sys.argv[1]
     else:
-        fname = "data/output_single.nc"
+        fname = "output_single.nc"
     main(fname)
 
