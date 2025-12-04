@@ -49,6 +49,8 @@ MODULE io_netcdf_mod
 
     array_dims = [nx_glob, ny_glob, numIters + 1]
 
+    
+
     !> Populate axes
     CALL create_axis(xAxis, nx_glob, [-1.0_REAL64, 1.0_REAL64])
     CALL create_axis(yAxis, ny_glob, [-1.0_REAL64, 1.0_REAL64])

@@ -99,7 +99,7 @@ program main
     ! (To do) 6. Output results using NetCDF
     ! ---------------------------------------------
     
-    CALL write_to_netcdf("data/output_single.nc", ierr, rho, phi, Ex, Ey, p)
+    CALL write_to_netcdf("data/output_single.nc", ierr, rho, phi(1:nx, 1:ny), Ex, Ey, p)
     print *, "Program complete."
 
 end program main
