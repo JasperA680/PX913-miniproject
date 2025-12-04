@@ -28,7 +28,7 @@ def main(filename: str) -> None:
     plt.figure()
     extent = [-1.0, 1.0, -1.0, 1.0]
     plt.imshow(
-        Ex.T,
+        Ex,
         origin="lower",
         extent=extent,
         aspect="equal",
