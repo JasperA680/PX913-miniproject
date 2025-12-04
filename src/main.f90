@@ -13,10 +13,11 @@ program main
 
     use iso_fortran_env, only : dp => real64, i32 => int32
     use command_line, only : parse_args, get_arg 
-    use grid_mod, only : setup_grid, dx, dy
+    use grid_mod, only : setup_grid, dx, dy, rho, phi
     use poisson_mod, only : solve_poisson
     use field_mod, only : compute_fields, Ex, Ey
     use particle_mod, only : particle
+    USE io_netcdf_mod
     implicit none
 
     ! parsed arguments
@@ -26,6 +27,9 @@ program main
     character(len=32) :: problem 
 
     logical :: ok_nx, ok_ny, ok_prob 
+
+    ! NetCDF error flag
+    INTEGER :: ierr
 
     ! particle related
     type(particle) :: p 
@@ -94,7 +98,8 @@ program main
     ! ---------------------------------------------
     ! (To do) 6. Output results using NetCDF
     ! ---------------------------------------------
-
+    
+    CALL write_to_netcdf("data/output_single.nc", ierr, rho, phi, Ex, Ey, p)
     print *, "Program complete."
 
 end program main
