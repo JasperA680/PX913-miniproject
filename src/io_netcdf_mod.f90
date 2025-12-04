@@ -1,8 +1,8 @@
 !> -------------
 !> Module to handle writing to NetCDF output
 !>   - Requires particle_mod, grid_mod, and domain_tools modules
-!>   -
-!>   -
+!>   - Takes in the particle and fields as inputs
+!>   - Writes all of the arrays
 !>   -
 !>   -
 !>   -
@@ -19,7 +19,7 @@ MODULE io_netcdf_mod
   USE grid_mod, ONLY: dx, dy, nx_glob, ny_glob
   USE particle_mod
   USE domain_tools
-  Use netcdf
+  USE netcdf
 
   IMPLICIT NONE
 
@@ -199,9 +199,77 @@ MODULE io_netcdf_mod
       RETURN
     END IF
 
+    !> Ending metadata definition
+    ierr = nf90_enddef(file_id)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+    
+    !> Putting variables
+    ierr = nf90_put_var(file_id, field_ids(1), rho)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
 
+    ierr = nf90_put_var(file_id, field_ids(2), phi)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
 
+    ierr = nf90_put_var(file_id, field_ids(3), Ex)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
 
+    ierr = nf90_put_var(file_id, field_ids(4), Ey)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(1), posX)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(2), posY)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(3), velX)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(4), velY)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(5), accX)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    ierr = nf90_put_var(file_id, kinematic_ids(6), accY)
+    IF(ierr /= NF90_NOERR) THEN
+      PRINT *, TRIM(nf90_strerror(ierr))
+      RETURN
+    END IF
+
+    !> Closing file and printing result of file write, regardless of whether error occurs
+    ierr = nf90_close(file_id)
+    PRINT *, "NetCDF: ", TRIM(nf90_strerror(ierr))
 
   END SUBROUTINE write_to_netcdf
 
