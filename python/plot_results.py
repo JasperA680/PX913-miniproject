@@ -26,4 +26,36 @@ def main(filename: str) -> None:
 
     # Pseudocolour plot of Ex(x,y)
     plt.figure()
-    
+    extent = [x.min(), x.max(), y.min(), y.max()]
+    plt.imshow(
+        Ex.T,
+        origin="lower",
+        extent=extent,
+        aspect="equal",
+    )
+    plt.colorbar(label="Ex field")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title("Electric Field Ex(x,y)")
+
+    # Particle trajectory: y vs x
+    plt.figure()
+    plt.plot(posX, posY, marker="-o", markersize=2, linewidth=1)
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.title("Particle Trajectory: y vs x")
+    plt.axis("equal")
+
+    # mark start and end points
+    plt.scatter(posX[0], posY[0], s =40, c='green', label='Start')
+    plt.scatter(posX[-1], posY[-1], s =40, c='red', label='End')
+    plt.legend()
+    plt.show()
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        fname = sys.argv[1]
+    else:
+        fname = "data/output_single.nc"
+    main(fname)
+
