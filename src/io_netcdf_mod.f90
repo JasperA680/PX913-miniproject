@@ -41,11 +41,11 @@ MODULE io_netcdf_mod
 
     REAL(REAL64), DIMENSION(:), ALLOCATABLE :: xAxis, yAxis, tAxis
     INTEGER, DIMENSION(3) :: array_ids, array_dims
-    CHARACTER(LEN=*), DIMENSION(3) :: array_names = ['x', 'y', 't']
+    CHARACTER(LEN=1), DIMENSION(3) :: array_names = ['x', 'y', 't']
 
-    INTEGER :: i, file_id, field_ids, kinematic_ids
-    DIMENSION(4) :: field_ids        ! Array of ids for the fields, in the order [rho, phi, Ex, Ey]
-    DIMENSION(6) :: kinematic_ids    ! Array of ids for the kinematics, in the order [posX, posY, velX, velY, accX, accY]
+    INTEGER :: i, file_id
+    INTEGER, DIMENSION(4) :: field_ids        ! Array of ids for the fields, in the order [rho, phi, Ex, Ey]
+    INTEGER, DIMENSION(6) :: kinematic_ids    ! Array of ids for the kinematics, in the order [posX, posY, velX, velY, accX, accY]
 
     array_dims = [nx_glob, ny_glob, numIters + 1]
 
@@ -231,37 +231,37 @@ MODULE io_netcdf_mod
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(1), posX)
+    ierr = nf90_put_var(file_id, kinematic_ids(1), part%histPosX)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(2), posY)
+    ierr = nf90_put_var(file_id, kinematic_ids(2), part%histPosY)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(3), velX)
+    ierr = nf90_put_var(file_id, kinematic_ids(3), part%histVelX)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(4), velY)
+    ierr = nf90_put_var(file_id, kinematic_ids(4), part%histVelY)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(5), accX)
+    ierr = nf90_put_var(file_id, kinematic_ids(5), part%histAccX)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN
     END IF
 
-    ierr = nf90_put_var(file_id, kinematic_ids(6), accY)
+    ierr = nf90_put_var(file_id, kinematic_ids(6), part%histAccY)
     IF(ierr /= NF90_NOERR) THEN
       PRINT *, TRIM(nf90_strerror(ierr))
       RETURN

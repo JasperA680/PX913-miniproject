@@ -17,13 +17,19 @@ set -e  # Exit on error
 FC=gfortran
 FFlags="-std=f2008 -O2"
 
+# Lines taken from Workshop 7 script
+nfflags=`nf-config --fflags`
+nflibs=`nf-config --flibs | sed -E 's/-lnetcdf$//'`
+
 echo "Compiling source code..."
-$FC $FFlags \
+$FC $FFlags $nfflags $nflibs \
+    src/create_axis.f90 \
     src/command_line.f90 \
     src/grid_mod.f90 \
     src/poisson_mod.f90 \
     src/field_mod.f90 \
     src/particle_mod.f90 \
+    src/io_netcdf_mod.f90 \
     src/main.f90 \
     -o mini_project.exe
 
@@ -37,5 +43,7 @@ PROBLEM="single"
 
 echo "Running mini_project.exe with nx=${NX}, ny=${NY}, problem=${PROBLEM}..."
 ./mini_project.exe nx=${NX} ny=${NY} problem=${PROBLEM}
+
+python3 python/plot_results.py
 
 echo "Run complete."
