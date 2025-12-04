@@ -20,3 +20,4 @@ Use `scripts/run_project.sh` to compile, run, and plot the results.
 - Write main driver program and connect modules (Jasper)
 - Write build script (Jasper)
 - Write python netcdf input and visualiser (Jasper)
+- Add time-dependence into the trajectory 
