@@ -40,9 +40,9 @@ PX913-miniproject/
 
 - Domain: square $[-1,1] \times [-1,1]$
 - Poisson equation:
-  $$
+  \[
   \nabla^2 \phi = \rho(x,y)
-  $$
+  \]
 - Boundary conditions: Dirichlet ($\phi = 0$ on all boundaries)
 - Charge density options:
   - `null`   – zero charge density
