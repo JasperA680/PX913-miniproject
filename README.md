@@ -38,20 +38,20 @@ PX913-miniproject/
 
 ## Physical Model
 
-- Domain: square \([-1,1] \times [-1,1]\)
+- Domain: square $[-1,1] \times [-1,1]$
 - Poisson equation:
-  \[
+  $$
   \nabla^2 \phi = \rho(x,y)
-  \]
-- Boundary conditions: Dirichlet (\(\phi = 0\) on all boundaries)
+  $$
+- Boundary conditions: Dirichlet ($\phi = 0$ on all boundaries)
 - Charge density options:
   - `null`   – zero charge density
   - `single` – single Gaussian charge
   - `double` – two Gaussian charges
 - Electric field:
-  \[
+  $$
   \mathbf{E} = -\nabla \phi
-  \]
+  $$
 - Particle dynamics:
   - Charged particle evolved using velocity-Verlet
   - Time step and number of iterations fixed in `particle_mod`
