@@ -63,3 +63,26 @@ PX913-miniproject/
 Check availability with:
 ```bash
 nf-config --version
+```
+---
+
+## Build and Run
+
+### Compile and Run
+
+A convenience script is provided to compile the Fortran source code and run the simulation.
+
+From the project root directory, first ensure the script is executable:
+```bash
+chmod +x scripts/run_project.sh
+```
+
+Then compile and run the code
+```bash
+./scripts/run_project.sh
+```
+
+Alternatively, the executable can be run directly with command line arguments, e.g.
+```bash
+./mini_project.exe nx=100 ny=100 problem=single
+```
