@@ -14,8 +14,8 @@ PX913-miniproject/
 ├── data/
 │   └── output_single.nc          # NetCDF output file
 ├── python/
-│   ├── plot_results.py           # Static plots + MP4 animation
-│   └── trajectory_pygame.py      # Interactive Pygame trajectory visualisation
+│   ├── plot_results.py           # Static plots 
+│   └── trajectory_pygame.py      # Pygame trajectory visualisation
 ├── scripts/
 │   └── run_project.sh            # Compile + run script
 ├── src/
