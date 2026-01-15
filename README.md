@@ -36,16 +36,33 @@ PX913-miniproject/
 └── README.md
 ```
 
-## Build and run
-Use `scripts/run_project.sh` to compile, run, and plot the results.
+## Physical Model
 
-## Plan 
+- Domain: square \([-1,1] \times [-1,1]\)
+- Poisson equation:
+  \[
+  \nabla^2 \phi = \rho(x,y)
+  \]
+- Boundary conditions: Dirichlet (\(\phi = 0\) on all boundaries)
+- Charge density options:
+  - `null`   – zero charge density
+  - `single` – single Gaussian charge
+  - `double` – two Gaussian charges
+- Electric field:
+  \[
+  \mathbf{E} = -\nabla \phi
+  \]
+- Particle dynamics:
+  - Charged particle evolved using velocity-Verlet
+  - Time step and number of iterations fixed in `particle_mod`
 
-- Initialise programme using `grid_mod.f90`
-- Write `poisson_mod.f90` (Jasper)
-- Write `particle_mod.f90` and velocity Verlet (Anton)
-- Write `io_netcdf_mod.f90` (Anton)
-- Write main driver program and connect modules (Jasper)
-- Write build script (Jasper)
-- Write python netcdf input and visualiser (Jasper)
-- Add time-dependence into the trajectory 
+## Requirements
+
+### Fortran
+- `gfortran` (Fortran 2008 compatible)
+
+### NetCDF
+- netCDF-Fortran library  
+Check availability with:
+```bash
+nf-config --version
