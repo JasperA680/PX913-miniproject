@@ -56,6 +56,8 @@ PX913-miniproject/
   - Charged particle evolved using velocity-Verlet
   - Time step and number of iterations fixed in `particle_mod`
 
+---
+
 ## Requirements
 
 ### Fortran
