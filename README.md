@@ -34,7 +34,7 @@ PX913-miniproject/
 │   └── test_grid.f90             # Grid module test
 ├── .gitignore
 └── README.md
-'''
+```
 
 ## Build and run
 Use `scripts/run_project.sh` to compile, run, and plot the results.
