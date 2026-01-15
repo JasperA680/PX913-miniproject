@@ -46,10 +46,7 @@ PX913-miniproject/
   - `null`   – zero charge density
   - `single` – single Gaussian charge
   - `double` – two Gaussian charges
-- Electric field:
-  $$
-  \mathbf{E} = -\nabla \phi
-  $$
+- Electric field:$\mathbf{E} = -\nabla \phi $
 - Particle dynamics:
   - Charged particle evolved using velocity-Verlet
   - Time step and number of iterations fixed in `particle_mod`
