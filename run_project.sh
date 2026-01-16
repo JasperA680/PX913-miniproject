@@ -37,9 +37,9 @@ echo "Compilation complete."
 
 # 2. Run the executable with specified parameters
 
-NX=51
-NY=51
-PROBLEM="double"
+NX=100
+NY=100
+PROBLEM="single"
 
 echo "Running mini_project.exe with nx=${NX}, ny=${NY}, problem=${PROBLEM}..."
 ./mini_project.exe nx=${NX} ny=${NY} problem=${PROBLEM}
