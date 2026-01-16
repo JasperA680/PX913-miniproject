@@ -35,8 +35,8 @@ contains
 
         do j =1, ny_glob
             do i=1, nx_glob 
-                Ex(i,j) = - (phi(i+1,j) - phi(i-1,j)) * inv2dx
-                Ey(i,j) = - (phi(i,j+1) - phi(i,j-1)) * inv2dy
+                Ex(i,j) = (phi(i+1,j) - phi(i-1,j)) * inv2dx
+                Ey(i,j) = (phi(i,j+1) - phi(i,j-1)) * inv2dy
             end do
         end do
 
